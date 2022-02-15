@@ -16,7 +16,6 @@ public class ListActiveAuctionsCommand implements Command {
         // TODO: get all active auctions from db (auctions_table)
 
         ResponseDto responseDto = new ResponseDto();
-
         responseDto.setStatus(ResponseStatus.Ok);
         responseDto.setContent(String.format("user %d requested active auctions", this.userId));
 

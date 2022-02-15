@@ -42,7 +42,7 @@ public class RegisterUserCommand implements Command {
 
         ResponseDto responseDto = new ResponseDto();
         responseDto.setStatus(ResponseStatus.Ok);
-        responseDto.setContent(String.format("user %s registered", this.username));
+        responseDto.setContent(String.format("welcome %s", this.username));
 
         return responseDto;
     }

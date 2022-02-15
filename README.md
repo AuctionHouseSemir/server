@@ -40,4 +40,8 @@
 #### TODO
 - [ ] better validation and error handling
 - [ ] clean CommandFactory
-- [ ] separate entities from dtos
+- [ ] separate entities from dtos and implement mapping between these
+- [ ] CacheStorage should be thread-safe
+- [ ] use JWT for authentication
+- [ ] AuthToken should be thread-safe
+- [ ] write unit tests and then implement all the functionalities

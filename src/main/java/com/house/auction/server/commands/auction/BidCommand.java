@@ -20,7 +20,6 @@ public class BidCommand implements Command {
         // TODO: add new bid record for auction by user in db (auction_bids_table)
 
         ResponseDto responseDto = new ResponseDto();
-
         responseDto.setStatus(ResponseStatus.Ok);
         responseDto.setContent(String.format("user %d bid for auction %d", this.userId, this.auctionId));
 

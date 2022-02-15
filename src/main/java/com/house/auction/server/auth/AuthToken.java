@@ -8,11 +8,17 @@ public class AuthToken {
     }
 
     public int getUserId() {
-        return 1;
+        String[] tokenParsed = token.split("-");
+
+        return Integer.parseInt(tokenParsed[0]);
     }
 
     public String getUsername() {
         return "user_1";
+    }
+
+    public boolean isValid() {
+        return true;
     }
 
     @Override

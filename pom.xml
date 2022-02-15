@@ -82,7 +82,7 @@
     </dependencies>
 
     <build>
-        <defaultGoal>clean generate-source compile install</defaultGoal>
+        <defaultGoal>clean install</defaultGoal>
 
         <extensions>
             <extension>

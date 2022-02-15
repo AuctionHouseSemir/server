@@ -16,7 +16,6 @@ public class ListParticipatedAuctionsCommand implements Command {
         // TODO: get all participated auctions from db (auctions_table)
 
         ResponseDto responseDto = new ResponseDto();
-
         responseDto.setStatus(ResponseStatus.Ok);
         responseDto.setContent(String.format("user %d requested participated auctions", this.userId));
 

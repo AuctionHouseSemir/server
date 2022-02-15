@@ -24,7 +24,6 @@ public class CreateAuctionCommand implements Command {
         // TODO: create new auction record for user in db (auctions_table)
 
         ResponseDto responseDto = new ResponseDto();
-
         responseDto.setStatus(ResponseStatus.Ok);
         responseDto.setContent(String.format("user %d created auction %s", this.userId, this.auctionName));
 

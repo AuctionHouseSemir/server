@@ -8,7 +8,6 @@ public class CommandController {
 
     public ResponseDto execute(String commandName, AuthToken authToken, List<String> params) {
         Command command = mapCommand(commandName, authToken, params);
-
         return command.execute();
     }
 

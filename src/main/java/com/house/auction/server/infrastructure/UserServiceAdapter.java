@@ -12,12 +12,12 @@ public class UserServiceAdapter implements UserService {
     }
 
     @Override
-    public UserAccount getUserById(int userId) {
+    public UserAccount getUserByUsername(String username) {
         return null;
     }
 
     @Override
-    public UserAccount getUserByUsername(String username) {
-        return null;
+    public boolean validCredentials(String username, String password) {
+        return true;
     }
 }

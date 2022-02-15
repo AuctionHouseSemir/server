@@ -3,6 +3,7 @@ package com.house.auction.server.commands;
 import com.house.auction.server.auction.AuctionService;
 import com.house.auction.server.auth.AuthToken;
 import com.house.auction.server.auth.UserService;
+import com.house.auction.server.cache.CacheStorage;
 import com.house.auction.server.commands.auction.*;
 import com.house.auction.server.commands.auth.LoginUserCommand;
 import com.house.auction.server.commands.auth.LogoutUserCommand;
@@ -23,6 +24,8 @@ public class CommandFactory {
     private UserService userService;
     @Autowired
     private AuctionService auctionService;
+    @Autowired
+    private CacheStorage cacheStorage;
 
     private CommandFactory() {
     }
@@ -62,11 +65,18 @@ public class CommandFactory {
         String username = params.get(0);
         String password = params.get(1);
 
-        return new LoginUserCommand(username, password);
+        LoginUserCommand command = new LoginUserCommand(userService, cacheStorage);
+        command.setUsername(username);
+        command.setPassword(password);
+
+        return command;
     }
 
     public Command createLogoutUserCommand(AuthToken authToken) {
-        return new LogoutUserCommand(authToken);
+        LogoutUserCommand command = new LogoutUserCommand(cacheStorage);
+        command.setAuthToken(authToken);
+
+        return command;
     }
 
     public Command createCreateAuctionCommand(AuthToken authToken, List<String> params) {
