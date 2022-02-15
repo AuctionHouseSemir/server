@@ -24,8 +24,6 @@ public class RegisterUserCommand implements Command {
 
     @Override
     public ResponseDto execute() {
-        // TODO: store user in db (users_table)
-
         UserAccount existingUser = userService.getUserByUsername(username);
         if (existingUser != null) {
             ResponseDto responseDto = new ResponseDto();
@@ -38,6 +36,7 @@ public class RegisterUserCommand implements Command {
         UserAccount user = new UserAccount();
         user.setUsername(username);
         user.setPassword(password);
+        
         userService.saveUser(user);
 
         ResponseDto responseDto = new ResponseDto();

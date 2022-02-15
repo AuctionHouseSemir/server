@@ -21,9 +21,8 @@ public class LogoutUserCommand implements Command {
 
     @Override
     public ResponseDto execute() {
-        // TODO: destroy user authToken from cache
-
         int userId = authToken.getUserId();
+
         cacheStorage.destroy(String.valueOf(userId));
 
         ResponseDto responseDto = new ResponseDto();

@@ -29,8 +29,6 @@ public class LoginUserCommand implements Command {
 
     @Override
     public ResponseDto execute() {
-        // TODO: validate credentials, generate authToken and store it in cache
-
         boolean credentialsValid = userService.validCredentials(username, password);
         if (!credentialsValid) {
             ResponseDto responseDto = new ResponseDto();
