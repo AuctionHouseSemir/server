@@ -45,3 +45,4 @@
 - [ ] use JWT for authentication
 - [ ] AuthToken should be thread-safe
 - [ ] write unit tests and then implement all the functionalities
+- [ ] create Dockerfile

@@ -19,8 +19,8 @@ public class LoginUserCommand implements Command {
     @Setter
     private String password;
 
-    private UserService userService;
-    private CacheStorage cacheStorage;
+    private final UserService userService;
+    private final CacheStorage cacheStorage;
 
     public LoginUserCommand(UserService userService, CacheStorage cacheStorage) {
         this.userService = userService;
@@ -43,7 +43,7 @@ public class LoginUserCommand implements Command {
         UserAccount userAccount = userService.getUserByUsername(username);
 
         AuthTokenGenerator tokenGenerator = new AuthTokenGenerator();
-        String authToken = tokenGenerator.generateToken(userAccount.getId());
+        String authToken = tokenGenerator.generateToken(userAccount.getId(), null);
 
         CacheItem cacheItem = new CacheItem();
         cacheItem.setKey(String.valueOf(userAccount.getId()));

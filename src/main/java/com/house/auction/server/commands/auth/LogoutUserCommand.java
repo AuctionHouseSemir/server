@@ -13,7 +13,7 @@ public class LogoutUserCommand implements Command {
     @Setter
     private AuthToken authToken;
 
-    private CacheStorage cacheStorage;
+    private final CacheStorage cacheStorage;
 
     public LogoutUserCommand(CacheStorage cacheStorage) {
         this.cacheStorage = cacheStorage;
@@ -24,7 +24,6 @@ public class LogoutUserCommand implements Command {
         // TODO: destroy user authToken from cache
 
         int userId = authToken.getUserId();
-
         cacheStorage.destroy(String.valueOf(userId));
 
         ResponseDto responseDto = new ResponseDto();
