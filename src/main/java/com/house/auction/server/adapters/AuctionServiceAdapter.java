@@ -8,6 +8,7 @@ import java.util.List;
 
 @Service
 public class AuctionServiceAdapter implements AuctionService {
+    // use LinkedList - faster writes, bidding, look for concurrent safe version of LinkedList
 
     @Override
     public void createAuction(AuctionEntity auction) {

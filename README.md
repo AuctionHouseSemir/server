@@ -40,8 +40,7 @@
 #### TODO
 - [ ] better validation and error handling
 - [ ] clean CommandFactory
-- [ ] separate entities from dtos and implement mapping between these
-- [ ] CacheStorage should be thread-safe
+- [ ] separate entities from DTOs and implement mapping between these (automapper)
 - [ ] use JWT for authentication
-- [ ] write unit tests and then implement all the functionalities
 - [ ] create Dockerfile
+- [ ] implement missing functionalities

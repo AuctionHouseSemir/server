@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceAdapter implements UserService {
+    // use ArrayList - faster gets, look for concurrent safe version of ArrayList
+
     @Override
     public void saveUser(UserAccount user) {
 

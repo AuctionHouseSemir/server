@@ -1,7 +1,5 @@
-package com.house.auction.server;
+package com.house.auction.server.auth;
 
-import com.house.auction.server.auth.AuthToken;
-import com.house.auction.server.auth.AuthTokenGenerator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
