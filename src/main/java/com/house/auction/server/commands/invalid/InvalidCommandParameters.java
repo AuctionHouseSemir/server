@@ -5,6 +5,7 @@ import com.house.auction.server.commands.ResponseDto;
 import com.house.auction.server.commands.ResponseStatus;
 
 public class InvalidCommandParameters implements Command {
+
     @Override
     public ResponseDto execute() {
         ResponseDto responseDto = new ResponseDto();

@@ -16,16 +16,16 @@ public class CommandController {
         Command command;
 
         switch (commandName) {
-            case "register" -> command = CommandFactory.createRegisterUserCommand(params);
-            case "login" -> command = CommandFactory.createLoginUserCommand(params);
-            case "logout" -> command = CommandFactory.createLogoutUserCommand(authToken);
-            case "create_auction" -> command = CommandFactory.createCreateAuctionCommand(authToken, params);
-            case "bid" -> command = CommandFactory.createBidCommand(authToken, params);
-            case "list_active" -> command = CommandFactory.createListActiveAuctionsCommand(authToken);
-            case "list_expired" -> command = CommandFactory.createListExpiredAuctionsCommand(authToken);
-            case "list_participated" -> command = CommandFactory.createListParticipatedAuctionsCommand(authToken);
-            case "list_won" -> command = CommandFactory.createListWonAuctionsCommand(authToken);
-            default -> command = CommandFactory.createInvalidCommand();
+            case "register" -> command = CommandFactory.getFactory().createRegisterUserCommand(params);
+            case "login" -> command = CommandFactory.getFactory().createLoginUserCommand(params);
+            case "logout" -> command = CommandFactory.getFactory().createLogoutUserCommand(authToken);
+            case "create_auction" -> command = CommandFactory.getFactory().createCreateAuctionCommand(authToken, params);
+            case "bid" -> command = CommandFactory.getFactory().createBidCommand(authToken, params);
+            case "list_active" -> command = CommandFactory.getFactory().createListActiveAuctionsCommand(authToken);
+            case "list_expired" -> command = CommandFactory.getFactory().createListExpiredAuctionsCommand(authToken);
+            case "list_participated" -> command = CommandFactory.getFactory().createListParticipatedAuctionsCommand(authToken);
+            case "list_won" -> command = CommandFactory.getFactory().createListWonAuctionsCommand(authToken);
+            default -> command = CommandFactory.getFactory().createInvalidCommand();
         }
 
         return command;
