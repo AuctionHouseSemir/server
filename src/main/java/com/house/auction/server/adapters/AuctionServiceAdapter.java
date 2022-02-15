@@ -1,4 +1,4 @@
-package com.house.auction.server.infrastructure;
+package com.house.auction.server.adapters;
 
 import com.house.auction.server.auction.AuctionEntity;
 import com.house.auction.server.auction.AuctionService;

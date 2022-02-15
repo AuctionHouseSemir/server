@@ -1,4 +1,4 @@
-package com.house.auction.server.infrastructure;
+package com.house.auction.server.adapters;
 
 import com.house.auction.server.auth.UserAccount;
 import com.house.auction.server.auth.UserService;
