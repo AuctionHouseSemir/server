@@ -1,21 +1,25 @@
 package com.house.auction.server.commands.auth;
 
-import com.house.auction.server.auth.UserAccount;
 import com.house.auction.server.auth.UserService;
 import com.house.auction.server.commands.ResponseDto;
 import com.house.auction.server.commands.ResponseStatus;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class RegisterUserCommandTests {
+    private RegisterUserCommand command;
+
+    @Before
+    public void setup() {
+        UserService userService = new UserServiceMock();
+        command = new RegisterUserCommand(userService);
+    }
 
     @Test
     public void execute_UserDoesNotExist_ReturnsSuccess() {
-        UserService userService = new UserServiceMock();
-
-        RegisterUserCommand command = new RegisterUserCommand(userService);
         command.setUsername("user_abc");
         command.setPassword("password123");
 
@@ -27,8 +31,6 @@ public class RegisterUserCommandTests {
 
     @Test
     public void execute_UserAlreadyExists_ReturnsError() {
-        UserService userService = new UserServiceMock();
-        RegisterUserCommand command = new RegisterUserCommand(userService);
         command.setUsername("user_a");
         command.setPassword("password123");
 

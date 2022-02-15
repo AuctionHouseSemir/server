@@ -5,17 +5,22 @@ import com.house.auction.server.cache.CacheStorage;
 import com.house.auction.server.commands.ResponseDto;
 import com.house.auction.server.commands.ResponseStatus;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class LogoutUserCommandTests {
+    private LogoutUserCommand command;
+
+    @Before
+    public void setup() {
+        CacheStorage cacheStorage = new CacheStorageMock();
+        command = new LogoutUserCommand(cacheStorage);
+    }
 
     @Test
     public void execute_ReturnsSuccess() {
-        CacheStorage cacheStorage = new CacheStorageMock();
-
-        LogoutUserCommand command = new LogoutUserCommand(cacheStorage);
         AuthToken authToken = new AuthToken("1;random-string");
         command.setAuthToken(authToken);
 
