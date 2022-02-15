@@ -9,7 +9,6 @@ import com.house.auction.server.commands.auth.LoginUserCommand;
 import com.house.auction.server.commands.auth.LogoutUserCommand;
 import com.house.auction.server.commands.auth.RegisterUserCommand;
 import com.house.auction.server.commands.invalid.InvalidCommand;
-import com.house.auction.server.commands.invalid.InvalidCommandParameters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +42,7 @@ public class CommandFactory {
     }
 
     public Command createInvalidCommandParameters() {
-        return new InvalidCommandParameters();
+        return new InvalidCommand("invalid command parameters");
     }
 
     public Command createRegisterUserCommand(List<String> params) {
