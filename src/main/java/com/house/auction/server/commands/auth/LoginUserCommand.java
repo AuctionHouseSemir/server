@@ -45,11 +45,7 @@ public class LoginUserCommand implements Command {
         AuthTokenGenerator tokenGenerator = new AuthTokenGenerator();
         String authToken = tokenGenerator.generateToken(userAccount.getId(), null);
 
-        CacheItem cacheItem = new CacheItem();
-        cacheItem.setKey(String.valueOf(userAccount.getId()));
-        cacheItem.setValue(authToken);
-
-        cacheStorage.store(cacheItem);
+        cacheStorage.store(String.valueOf(userAccount.getId()), authToken);
 
         ResponseDto responseDto = new ResponseDto();
         responseDto.setStatus(ResponseStatus.Ok);

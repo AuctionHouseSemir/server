@@ -5,7 +5,7 @@ import com.house.auction.server.cache.CacheStorage;
 
 public class CacheStorageMock implements CacheStorage {
     @Override
-    public void store(CacheItem cacheItem) {
+    public void store(String key, String value) {
 
     }
 

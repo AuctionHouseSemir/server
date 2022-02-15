@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CacheStorageAdapter implements CacheStorage {
     @Override
-    public void store(CacheItem cacheItem) {
+    public void store(String key, String value) {
 
     }
 
