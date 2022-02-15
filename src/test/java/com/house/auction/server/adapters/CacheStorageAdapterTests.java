@@ -36,7 +36,7 @@ public class CacheStorageAdapterTests {
     }
 
     @Test
-    public void get_KeyNoExists_ReturnsNull() {
+    public void get_KeyNotExists_ReturnsNull() {
         CacheItem cacheItem = cacheStorageAdapter.get("no_key");
         Assert.assertNull(cacheItem);
     }

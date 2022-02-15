@@ -4,18 +4,32 @@ import com.house.auction.server.auth.UserAccount;
 import com.house.auction.server.auth.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
+
 @Service
 public class UserServiceAdapter implements UserService {
-    // use ArrayList - faster gets, look for concurrent safe version of ArrayList
+    private final CopyOnWriteArrayList<UserAccount> userAccounts;
+    private final AtomicInteger usersCount;
+
+    public UserServiceAdapter() {
+        this.userAccounts = new CopyOnWriteArrayList<>();
+        this.usersCount = new AtomicInteger();
+    }
 
     @Override
     public void saveUser(UserAccount user) {
-
+        user.setId(usersCount.addAndGet(1));
+        userAccounts.add(user);
     }
 
     @Override
     public UserAccount getUserByUsername(String username) {
-        return null;
+        return userAccounts
+                .stream()
+                .filter(u -> u.getUsername().equals(username))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
