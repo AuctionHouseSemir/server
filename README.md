@@ -27,7 +27,7 @@
 * Command
   * most important unit in commands/ package
   * use case
-  * not really useful on its own, uses most inner circle for successful execution
+  * not really useful on its own, uses most inner circle to successfully accomplish some business logic
 * CommandController
   * exposes and controls Commands
   * map command name from request to specific Command
@@ -43,6 +43,5 @@
 - [ ] separate entities from dtos and implement mapping between these
 - [ ] CacheStorage should be thread-safe
 - [ ] use JWT for authentication
-- [ ] AuthToken should be thread-safe
 - [ ] write unit tests and then implement all the functionalities
 - [ ] create Dockerfile
