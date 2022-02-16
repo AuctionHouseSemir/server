@@ -3,6 +3,8 @@ package com.house.auction.server.auction;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.LinkedList;
+
 @Getter
 @Setter
 public class AuctionEntity {
@@ -13,4 +15,5 @@ public class AuctionEntity {
     private int duration;
     private int status;
     private int createdBy;
+    private LinkedList<BidEntity> bids = new LinkedList<>();
 }

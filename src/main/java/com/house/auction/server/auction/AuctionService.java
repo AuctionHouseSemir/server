@@ -6,5 +6,5 @@ public interface AuctionService {
     void createAuction(AuctionEntity auction);
     void bidAuction(int auctionId, int value, int bidBy);
     AuctionEntity getById(int auctionId);
-    List<AuctionEntity> searchByStatus(int status);
+    List<AuctionEntity> searchByStatus(int status, int userId);
 }

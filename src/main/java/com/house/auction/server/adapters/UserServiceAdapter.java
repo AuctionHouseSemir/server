@@ -10,23 +10,22 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Service
 public class UserServiceAdapter implements UserService {
     private final CopyOnWriteArrayList<UserAccount> userAccounts;
-    private final AtomicInteger usersCount;
+    private final AtomicInteger usersCounter;
 
     public UserServiceAdapter() {
         this.userAccounts = new CopyOnWriteArrayList<>();
-        this.usersCount = new AtomicInteger();
+        this.usersCounter = new AtomicInteger();
     }
 
     @Override
     public void saveUser(UserAccount user) {
-        user.setId(usersCount.addAndGet(1));
+        user.setId(usersCounter.incrementAndGet());
         userAccounts.add(user);
     }
 
     @Override
     public UserAccount getUserByUsername(String username) {
-        return userAccounts
-                .stream()
+        return userAccounts.stream()
                 .filter(u -> u.getUsername().equals(username))
                 .findFirst()
                 .orElse(null);

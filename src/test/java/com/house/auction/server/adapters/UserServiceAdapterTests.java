@@ -12,7 +12,7 @@ public class UserServiceAdapterTests {
 
     @Before
     public void setup() {
-        this.userServiceAdapter = new UserServiceAdapter();
+        userServiceAdapter = new UserServiceAdapter();
     }
 
     @Test
