@@ -3,6 +3,7 @@ package com.house.auction.server.commands;
 import com.house.auction.server.auction.AuctionService;
 import com.house.auction.server.auth.AuthToken;
 import com.house.auction.server.auth.UserService;
+import com.house.auction.server.cache.CacheItem;
 import com.house.auction.server.cache.CacheStorage;
 import com.house.auction.server.commands.auction.*;
 import com.house.auction.server.commands.auth.LoginUserCommand;
@@ -79,6 +80,8 @@ public class CommandFactory {
     }
 
     public Command createCreateAuctionCommand(AuthToken authToken, List<String> params) {
+        if (!isAuthenticated(authToken)) return new InvalidCommand("unauthorized");
+
         try {
             String auctionName = params.get(0);
             double initialPrice = Double.parseDouble(params.get(1));
@@ -94,6 +97,8 @@ public class CommandFactory {
     }
 
     public Command createBidCommand(AuthToken authToken, List<String> params) {
+        if (!isAuthenticated(authToken)) return new InvalidCommand("unauthorized");
+
         try {
             int auctionId = Integer.parseInt(params.get(0));
             int bidValue = Integer.parseInt(params.get(1));
@@ -107,26 +112,41 @@ public class CommandFactory {
     }
 
     public Command createListActiveAuctionsCommand(AuthToken authToken) {
+        if (!isAuthenticated(authToken)) return new InvalidCommand("unauthorized");
+
         int userId = authToken.getUserId();
 
         return new ListActiveAuctionsCommand(userId);
     }
 
     public Command createListExpiredAuctionsCommand(AuthToken authToken) {
+        if (!isAuthenticated(authToken)) return new InvalidCommand("unauthorized");
+
         int userId = authToken.getUserId();
 
         return new ListExpiredAuctionsCommand(userId);
     }
 
     public Command createListParticipatedAuctionsCommand(AuthToken authToken) {
+        if (!isAuthenticated(authToken)) return new InvalidCommand("unauthorized");
+
         int userId = authToken.getUserId();
 
         return new ListParticipatedAuctionsCommand(userId);
     }
 
     public Command createListWonAuctionsCommand(AuthToken authToken) {
+        if (!isAuthenticated(authToken)) return new InvalidCommand("unauthorized");
+        
         int userId = authToken.getUserId();
 
         return new ListWonAuctionsCommand(userId);
+    }
+
+    private boolean isAuthenticated(AuthToken authToken) {
+        int userId = authToken.getUserId();
+        CacheItem user = cacheStorage.get(String.valueOf(userId));
+
+        return user != null;
     }
 }
