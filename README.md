@@ -43,4 +43,5 @@
 - [ ] separate entities from DTOs and implement mapping between these (automapper)
 - [ ] use JWT for authentication
 - [ ] create Dockerfile
-- [ ] implement missing functionalities
+- [ ] implement missing commands
+- [ ] implement authentication middleware so that each command can be validated before processing
