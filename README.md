@@ -12,7 +12,7 @@
   * knows about most inner circle, but knows nothing about anything else 
   * we can change from grpc to something else and still re-use commands/ package
 
-* **infrastructure/, service/**
+* **adapters/, service/**
   * most outer circle
   * unimportant implementation detail
   * knows about other components
